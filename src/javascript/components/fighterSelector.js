@@ -21,16 +21,15 @@ export function createFightersSelector() {
 const fighterDetailsMap = new Map();
 
 export async function getFighterInfo(fighterId) {
-  const { _id } = fighterId;
+  const _id  = fighterId;
   if (!fighterDetailsMap.has(_id)) {
-    // send request here
     const fighterInfo = fighterService.getFighterDetails(_id)
     fighterDetailsMap.set(_id, fighterInfo);
   }
   return fighterDetailsMap.get(_id);
 }
 
-  // get fighter info from fighterDetailsMap or from service and write it to fighterDetailsMap
+
 
 
 function renderSelectedFighters(selectedFighters) {
